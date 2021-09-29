@@ -1,7 +1,6 @@
 import java.text.DecimalFormat;
 import java.util.Locale;
 
-
 class Acomodacao implements Cloneable {
 
     private String hostId;
@@ -11,7 +10,6 @@ class Acomodacao implements Cloneable {
     private double bedrooms;
     private double price;
     private String propertyType;
-    
     private Region region;
     private Room room;
 
@@ -128,7 +126,7 @@ class Acomodacao implements Cloneable {
 
     // ler
     public static void ler() {
-        int n = MyIO.readInt();
+        int n = MyIO.readInt();      
         Acomodacao[] vetor = new Acomodacao[n];
         for (int i = 0; i < vetor.length; i++) {
             String s = MyIO.readLine();
@@ -181,22 +179,16 @@ class Acomodacao implements Cloneable {
     // imprimir
     public void imprimir() {
         String str;
-
         String priceFormatted = formataFlutuante(price);
         String bedroomsFormatted = formataFlutuante(bedrooms);
         String overallSatisfactionFormatted = formataFlutuante(overallSatisfaction);
-
         str = String.format("[%s ## %s ## %s ## %s ## %s ## %s ## %d ## %s ## %d ## %s ## %s ## %s]", this.room.getId(),
                 this.hostId, this.room.getType(), this.region.getCountry(), this.region.getCity(), this.region.getNeighbourhood(), this.reviews,
                 overallSatisfactionFormatted, this.accommodates, bedroomsFormatted, priceFormatted, this.propertyType);
-
         MyIO.println(str);
     }
-
     public static void main(String[] args) throws Exception {
         MyIO.setCharset("UTF-8");
-
         Acomodacao.ler();
-
     }
 }
